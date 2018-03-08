@@ -16,5 +16,5 @@ key=getpass.getpass('Enter password: ')
 s=socket.socket(socket.AF_INET,socket.SOCK_STREAM)
 s.connect((SERVER,PORT))
 s.send(userid.encode('utf-8')+decrypt_file(key))
-
+print((s.recv(1024)).decode('utf-8')) #prints response
 #unencrypt data
