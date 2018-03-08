@@ -1,9 +1,9 @@
 import smtplib
 import getpass
+
 from string import Template
 from email.mime.multipart import MIMEMultipart
 from email.mime.text import MIMEText
-
 
 def emailform():
     with open("/home/thbr/MPA_SS/email_template.txt",'r',encoding='utf-8') as email:
@@ -19,10 +19,11 @@ address=input()
 password=getpass.getpass('Enter password:')
 s.login(address,password)
 #now send the email to all the authorisers
-email_body=emailform()
 
+
+email_body=emailform() #get template
 msg=MIMEMultipart()
-message=email_body.substitute(USER="Balvansh")
+message=email_body.substitute(USER="Balvansh") #substitute user
 message=message+input('Enter a short description: ')
 msg['From']=address
 msg['To']=emails
@@ -33,5 +34,7 @@ try:
     s.send_message(msg)
 finally:
     print("Message sent")
+
+
 
 
