@@ -10,10 +10,11 @@ def decrypt_file(key):
         return(decryptor.decrypt(dta.read()))  
 SERVER='127.0.0.1'
 PORT=9909
+userid=input("Enter ID:")
 key=getpass.getpass('Enter password: ')
 #decrypt_file(key)
 s=socket.socket(socket.AF_INET,socket.SOCK_STREAM)
 s.connect((SERVER,PORT))
-s.send(decrypt_file(key))
+s.send(userid.encode('utf-8')+decrypt_file(key))
 
 #unencrypt data
