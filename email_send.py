@@ -10,6 +10,9 @@ def emailform():
         email_body=email.read()
     return Template(email_body)
 # read the emails from the encrypted DB
+def get_emails():
+    
+
 emails="balvanshh@gmail.com"
 # setup SMTP server details
 s=smtplib.SMTP(host="smtp.gmail.com",port=587)

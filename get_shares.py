@@ -17,10 +17,10 @@ class clientSentShare(Thread):
 ss=socket.socket(socket.AF_INET,socket.SOCK_STREAM)
 ss.setsockopt(socket.SOL_SOCKET,socket.SO_REUSEADDR,1)
 threads=[]  #no idea why this is there!
-ss.bind(('127.0.0.1',9909))
+ss.bind(('192.168.43.220',9909))
 ss.listen(10)
 #TODO: check HOW timeout works
-ss.settimeout(30)    #socket closes in 5 minutes
+ss.settimeout(300)    #socket closes in 5 minutes
 try:
     while True:    
         (conn,(ip,port))=ss.accept()
