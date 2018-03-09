@@ -20,7 +20,7 @@ threads=[]  #no idea why this is there!
 ss.bind(('127.0.0.1',9909))
 ss.listen(10)
 #TODO: check HOW timeout works
-ss.settimeout(5)    #socket closes in 5 minutes
+ss.settimeout(30)    #socket closes in 5 minutes
 try:
     while True:    
         (conn,(ip,port))=ss.accept()
