@@ -1,5 +1,6 @@
 import socket
 import getpass
+import decodeSecret
 from Crypto.Cipher import AES
 import hashlib
 def decrypt_file(key):
@@ -18,3 +19,5 @@ s.connect((SERVER,PORT))
 s.send(userid.encode('utf-8')+decrypt_file(key))
 print((s.recv(1024)).decode('utf-8')) #prints response
 #unencrypt data
+
+decodeSecret.decodeSecret(shares)
