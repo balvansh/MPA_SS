@@ -10,8 +10,12 @@ def emailform():
         email_body=email.read()
     return Template(email_body)
 # read the emails from the encrypted DB
+"""
 def get_emails():
-    
+    from pysqlcipher3 import dbapi2 as sqlcipher
+    db=sqlcipher.connect("test.db")
+    password=getpass.getpass('Enter DB password:')
+"""        
 
 emails="balvanshh@gmail.com"
 # setup SMTP server details

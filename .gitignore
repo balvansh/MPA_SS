@@ -1,0 +1,4 @@
+__pycache__/
+sqlcipher/
+pysqlcipher3/
+

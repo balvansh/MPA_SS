@@ -3,13 +3,13 @@ def decodeSecret(shares):
     dValue = []
     for value in shares:
         try:
-            dKey.append(unicode(value[0],"utf-8"))
+            dKey.append((value[0]).encode("utf-8"))
         except:
-            dKey.append(value[0])
+            dKey.append(int(str(value[0], 'utf-8')))
         try:
-            dValue.append(unicode(value[1],"utf-8"))
+            dValue.append((value[1]).encode("utf-8"))
         except:
-            dValue,.append(value[1])
+            dValue.append(int(str(value[1], 'utf-8')))
     result = 1.0
     print("Id of the entered keys: ",dKey)
     print("The secrets entered are: ",dValue)

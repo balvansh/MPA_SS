@@ -1,6 +1,7 @@
 import socket
 from threading import Thread
 from socketserver import ThreadingMixIn
+import decodeSecret
 shares=[]
 class clientSentShare(Thread):
     def __init__(self,ip,port):
@@ -13,14 +14,14 @@ class clientSentShare(Thread):
         print(data,port,type(data))
         conn.send(b'Share has been shared')
         conn.close()
-        shares.append([data[:5],data[5:]]) #assuming that the id is 5 digits long
+        shares.append([data[:1],data[1:]]) #assuming that the id is 5 digits long
 ss=socket.socket(socket.AF_INET,socket.SOCK_STREAM)
 ss.setsockopt(socket.SOL_SOCKET,socket.SO_REUSEADDR,1)
 threads=[]  #no idea why this is there!
-ss.bind(('192.168.43.220',9909))
+ss.bind(('127.0.0.1',9909))
 ss.listen(10)
 #TODO: check HOW timeout works
-ss.settimeout(300)    #socket closes in 5 minutes
+ss.settimeout(20)    #socket closes in 5 minutes
 try:
     while True:    
         (conn,(ip,port))=ss.accept()
@@ -35,4 +36,5 @@ for t in threads:
 
 print(shares)
 #TODO :take shares and perform the regeneration
+decodeSecret.decodeSecret(shares)
     
