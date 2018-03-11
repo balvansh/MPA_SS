@@ -1,6 +1,6 @@
-#Multiparty Authorization using Secret Sharing
+# Multiparty Authorization using Secret Sharing
 
-###Dependencies
+### Dependencies
 * sqlcipher
 * pysqlcipher3
 ..* Make sure to take the required files from the sqlcipher install to perform amalgamation when installing
