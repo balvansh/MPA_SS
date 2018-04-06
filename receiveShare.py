@@ -1,3 +1,6 @@
+'''
+have to receive the share from VIS, then encrypt it
+'''
 from Crypto.Cipher import AES
 import hashlib
 IV = 16 * '\x00'           # Initialization vector: discussed later
